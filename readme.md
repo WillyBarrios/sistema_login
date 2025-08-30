@@ -22,6 +22,7 @@ Para ejecutar este proyecto, necesitas:
 - **Base de Datos:** MySQL 5 o superior.
 - **phpMyAdmin:** Opcional, para gestionar la base de datos.
 - **Entorno de desarrollo todo en uno:** XAMPP, WAMPP u otra alternativa.
+- **Configura tu e
 
 ---
 
@@ -38,7 +39,7 @@ Para ejecutar este proyecto, necesitas:
    - Importa el archivo `/recursos/bd/sistemaventa.sql` incluido en el proyecto.
 
 3. **Configura la conexión:**
-   - Abre el archivo `conexionBD.py`.
+   - Abre el archivo `config.py`.
    - Actualiza los datos de conexión (host, usuario, contraseña, base de datos).
 
 4. **Crea un entorno virtual (opcional):**
