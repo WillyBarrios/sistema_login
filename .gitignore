@@ -82,7 +82,7 @@ Thumbs.db
 instance/
 
 # Ignore secrets/config
-#config.py
+config.py
 #Scrips
 seed_roles_permisos.py
 update_password.py
