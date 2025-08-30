@@ -1,0 +1,37 @@
+{% macro navbar() %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/auth/dashboard">Sistema Login</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if session.get('rol') %}
+          {% set rol = session['rol']|lower|trim %}
+          <li class="nav-item"><a class="nav-link" href="/auth/dashboard">Dashboard</a></li>
+          {% if rol == 'gerente' %}
+            <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/proveedores">Proveedores</a></li>
+          {% elif rol == 'programador' %}
+            <li class="nav-item"><a class="nav-link" href="/clientes">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="/proveedores">Proveedores</a></li>
+            <li class="nav-item"><a class="nav-link" href="/empleados">Empleados</a></li>
+            <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/usuarios">Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="/roles">Roles</a></li>
+            <li class="nav-item"><a class="nav-link" href="/permisos">Permisos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/rol_permiso">Rol-Permiso</a></li>
+          {% elif rol == 'rrhh' %}
+            <li class="nav-item"><a class="nav-link" href="/empleados">Empleados</a></li>
+            <li class="nav-item"><a class="nav-link" href="/clientes">Clientes</a></li>
+          {% endif %}
+          <li class="nav-item ms-auto">
+            <a class="nav-link text-danger" href="/auth/logout">Cerrar sesión</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endmacro %}
