@@ -11,9 +11,14 @@ jwt = JWTManager()
 
 import pymysql
 pymysql.install_as_MySQLdb()
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    
+    # Configurar SQLAlchemy con las opciones del motor
+    if hasattr(Config, 'SQLALCHEMY_ENGINE_OPTIONS'):
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = Config.SQLALCHEMY_ENGINE_OPTIONS
     from app.routes.rol_permiso_routes import rol_permiso_bp
     app.register_blueprint(rol_permiso_bp)
     from app.routes.permisos_routes import permisos_bp
